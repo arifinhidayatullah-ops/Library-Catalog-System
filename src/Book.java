@@ -1,19 +1,19 @@
 public class Book {
-    String isbn;
+    String kodebuku;
     String title;
-    String author;
+    String penulis;
     int year;
     boolean available;
 
-    public Book(String isbn, String title, String author, int year, boolean available) {
-        this.isbn = isbn;
+    public Book(String kodebuku, String title, String penulis, int year, boolean available) {
+        this.kodebuku = kodebuku;
         this.title = title;
-        this.author = author;
+        this.penulis = penulis;
         this.year = year;
         this.available = available;
     }
 
     public void display() {
-        System.out.println(title + " by " + author + " (" + year + ")");
+        System.out.println(title + " by " + penulis + " (" + year + ")");
     }
 }
