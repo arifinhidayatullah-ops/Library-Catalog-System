@@ -4,7 +4,7 @@ import shared.BorrowRecord;
 
 public class MemberLoanIndex {
 
-  private Entry[] table;
+  private Entry[] table; 
   private int size;
   private int capacity = 10;
 
