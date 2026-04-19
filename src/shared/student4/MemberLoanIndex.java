@@ -29,7 +29,7 @@ public class MemberLoanIndex {
   }
   public void put(String key, BorrowRecord value) {
     int index = hash(key);
-
+ 
     Entry newEntry = new Entry(key, value);
 
     if (table[index] == null) {
