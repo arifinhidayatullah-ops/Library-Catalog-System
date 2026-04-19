@@ -65,7 +65,7 @@ public class MemberLoanIndex {
     return null;
   }  
   public void remove(String key) {
-    int index = hash(key);
+    int index = hash(key); 
 
     Entry current= table[index];
     Entry prev = null;
