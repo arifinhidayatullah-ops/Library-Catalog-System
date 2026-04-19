@@ -25,7 +25,7 @@ public class MemberLoanIndex {
     }
   }
   private int hash(String key) {
-    return Math.abs(key.hashCode()) % capacity;
+    return Math.abs(key.hashCode()) % capacity; 
   }
   public void put(String key, BorrowRecord value) {
     int index = hash(key);
