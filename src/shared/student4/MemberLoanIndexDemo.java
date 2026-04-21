@@ -5,32 +5,34 @@ import shared.BorrowRecord;
 public class MemberLoanIndexDemo {
   public static void main(String[] args) {
 
-    MemberLoanIndex map = new MemberLoandIndex();
+    MemberLoanIndex index = new MemberLoanIndex();
 
     //data contoh
-    BorrowRecord r1 = new BorrowRecord("M001", "B001", "2026-04-01", "-");
-    BorrowRecord r2 = new BorrowRecord("M002", "B002", "2026-04-02", "-");
-
-    //test put
-    map.put("M001", r1);
-    map.put("M002", r2);
-
+    index.put("M010", new BorrowRecord("M010", "BK-101", "2026-03-01", null));
+    index.put("M020", new BorrowRecord("M020", "BK-102", "2026-03-05", null));
+    index.put("M030", new BorrowRecord("M030", "BK-103", "2026-03-10", null));
+    
     //test size
-    System.out.println("Size: " + map.size());
+    System.out.println("Total peminjam: " + index.size());
+
+    //contains
+    System.out.println("Apakah M020 sedang meminjam? " + index.containsKey("M020"));
+    
 
     //test get
-    BorrowRecord result = map.get("M001");
-    if (result != null) {
-        System.out.println("FOund: " + result.memberId + " - " + result/bookIsbn);
+    BorrowRecord r = index.get("M010");
+    if (r != null) {
+        System.out.println("Data ditemukan " + r.memberId + " meminjam [" + r.bookIsbn + "] pada " + r.borrowDate);
     }
 
     //test list
-    map.listAllKeys();
+    index.listAllKeys();
 
     //test remove
-    map.remove("M001");
+    index.remove("M020");
+    System.out.println("Data M020 sudah dihapus.");
 
-    System.out.println("After remove:");
-    map.listAllKeys();
+    //size lagi
+    System.out.println("Sisa peminjam: " + index.size ());
   }
 }
