@@ -45,11 +45,17 @@ public class MemberLoanIndex {
         current = current.next;
       }
 
+      if (current.key.equals(key)) {
+         current.value = value;
+         return;
+      }
+
       current.next = newEntry;
     }
 
     size++;
   }
+ 
   public BorrowRecord get(String key) {
     int index = hash(key);
 
@@ -91,17 +97,23 @@ public class MemberLoanIndex {
     return size;
   }
   public void listAllKeys() {
-    System.out.println("=== Semua Member ID ===")
+    System.out.println("=== Semua ID Pemijam Aktif ===");
 
-      for (int i = 0 i < capacity; i++) {
-          Entry current = table [i];
+    boolean first = true;
 
-          while (current != null) {
-            System.out.println(current.key);
+    for (int i = 0; i < capacity; i++) {
+        Entry current = table[i];
+
+        while (current != null) {
+            if (!first) {
+               System.out.print(", ");
+            }
+            System.out.print(current.key);
+            first = false;
             current = current.next;
           }
     }
-      
+    System.out.println();
   }
                   
 }
