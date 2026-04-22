@@ -52,4 +52,5 @@ Ikuti langkah-langkah berikut untuk menjalankan program di perangkat Anda:
    ```bash
    javac *.java
 5. jalankan aplikasi utama dengan perintah:
+   ```bash
    java Main
