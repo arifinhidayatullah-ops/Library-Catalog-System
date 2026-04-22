@@ -51,5 +51,5 @@ Ikuti langkah-langkah berikut untuk menjalankan program di perangkat Anda:
 4. Kompilasi seluruh file Java dengan perintah:
    ```bash
    javac *.java
-   jalankan aplikasi utama dengan perintah:
+5. jalankan aplikasi utama dengan perintah:
    java Main
