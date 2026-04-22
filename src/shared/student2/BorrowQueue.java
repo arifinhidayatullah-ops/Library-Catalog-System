@@ -59,7 +59,7 @@ public class BorrowQueue {
         book.available = false;
         member.borrowCount++;
 
-        System.out.Println("peminjaman berhasil :) ");
-        record.display()
+        System.out.println("peminjaman berhasil :) ");
+        record.display();
     }
 }

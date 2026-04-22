@@ -1,21 +1,21 @@
 package shared;
 
 public class Book {
-    String kodebuku;
-    String title;
-    String penulis;
-    int year;
-    boolean available;
+    public String isbn;
+    public String title;
+    public String author;
+    public int year;
+    public boolean available;
 
-    public Book(String kodebuku, String title, String penulis, int year, boolean available) {
-        this.kodebuku = kodebuku;
+    public Book(String isbn, String title, String author, int year, boolean available) {
+        this.isbn = isbn;
         this.title = title;
-        this.penulis = penulis;
+        this.author = author;
         this.year = year;
         this.available = available;
     }
 
     public void display() {
-        System.out.println(title + " by " + penulis + " (" + year + ")");
+        System.out.println(title + " by " + author + " (" + year + ")");
     }
 }

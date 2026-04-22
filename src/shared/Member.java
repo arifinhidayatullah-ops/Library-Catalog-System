@@ -1,10 +1,12 @@
-public class member {
-    String id;
-    String name;
-    String email;
-    int borrowCount;
+package shared;
 
-    public member(String id, String name, String email) {
+public class Member {
+    public String id;
+    public String name;
+    public String email;
+    public int borrowCount;
+
+    public Member(String id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -12,7 +14,6 @@ public class member {
     }
 
     public void display() {
-        System.out.println(name + "(" + email + ")");
-    
-    }  
+        System.out.println(name + " (" + email + ")");
+    }
 }
