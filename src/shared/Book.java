@@ -1,3 +1,5 @@
+package shared;
+
 public class Book {
     String kodebuku;
     String title;
