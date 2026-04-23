@@ -28,8 +28,8 @@ public class BorrowingQueue {
     }
 }
 
-public void processBorrow(Map<String, Book> books, Map< String, Member> members) {
-    if (queue.isEmpaty()) {
+public void processBorrow(Map<String, Book> books, Map< String, member> members) {
+    if (queue.isEmpty()) {
         System.out.println("Antrian kososng...");
         return ;
     }
@@ -37,7 +37,7 @@ public void processBorrow(Map<String, Book> books, Map< String, Member> members)
     BorrowRecord record = queue.poll();
 
     Book book = books.get(record.bookIsbn);
-    Member member = members.get(record.memberId);
+    member member = members.get(record.memberId);
 
     if (book == null) {
         System.out.println("Buku tidak ketemu....");
@@ -55,7 +55,7 @@ public void processBorrow(Map<String, Book> books, Map< String, Member> members)
     }
 
     book.available = false;
-    member.borrowcount ++;
+    member.borrowCount ++;
 
     System.out.println("Peminjaman berhasil :)");
     record.display();
