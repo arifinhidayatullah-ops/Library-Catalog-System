@@ -1,5 +1,5 @@
 import shared.*;
-import student2.BorrowQueue;
+import student2.BorrowingQueue;
 
 public class main {
     public static void main(String[] args) {
@@ -8,10 +8,10 @@ public class main {
         Book b1 = new Book("001", "Java Basics", "Andi", 2020, true);
 
         // test Member
-        member m1 = new member("M01", "Arifin", "arifin@email.com");
+        Member m1 = new Member("M01", "Arifin", "arifin@email.com");
 
         // test br
-        BorrowRecort br1 = new BorrowRecort("M01", "001", "2026-03-10");
+        BorrowRecord br1 = new BorrowRecord("M01", "001", "2026-03-10");
 
         b1.display();
         m1.display();
