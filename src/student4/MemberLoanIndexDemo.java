@@ -8,9 +8,9 @@ public class MemberLoanIndexDemo {
     MemberLoanIndex index = new MemberLoanIndex();
 
     //data contoh
-    index.put("M010", new BorrowRecord("M010", "BK-101", "2026-03-01", null));
-    index.put("M020", new BorrowRecord("M020", "BK-102", "2026-03-05", null));
-    index.put("M030", new BorrowRecord("M030", "BK-103", "2026-03-10", null));
+    index.put("M010", new BorrowRecord("M010", "BK-101", "2026-03-01"));
+    index.put("M020", new BorrowRecord("M020", "BK-102", "2026-03-05"));
+    index.put("M030", new BorrowRecord("M030", "BK-103", "2026-03-10"));
     
     //test size
     System.out.println("Total peminjam: " + index.size());
