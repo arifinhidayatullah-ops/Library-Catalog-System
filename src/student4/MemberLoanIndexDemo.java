@@ -13,7 +13,7 @@ public class MemberLoanIndexDemo {
     index.put("M030", new BorrowRecord("M030", "BK-103", "2026-03-10"));
     
     //test size
-    System.out.println("Total peminjam: " + index.size());
+    System.out.println("Jumlah data data peminjam: " + index.size());
 
     //contains
     System.out.println("Apakah M020 sedang meminjam? " + index.containsKey("M020"));
