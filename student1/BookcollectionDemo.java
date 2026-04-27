@@ -1,3 +1,4 @@
+package student1;
 import shared.*;
 
 class Main {
