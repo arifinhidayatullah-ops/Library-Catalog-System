@@ -8,7 +8,7 @@ public class BookCollection {
 
     public BookCollection() {
         books = new Book[2];
-        size = 0;
+        size = 0; // increment size 
     }
 
     private void resize() {
