@@ -14,7 +14,9 @@ public class BookCollectionDemo {
         System.out.println("Total: " + col.size());
 
         col.findByIsbn("978-B");
+
         col.findByAuthor("Andi Sulistyo");
+
         col.listAvailable();
     }
 }
