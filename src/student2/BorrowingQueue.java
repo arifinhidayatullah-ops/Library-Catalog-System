@@ -1,68 +1,93 @@
 package student2;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Map;
-
-import shared.Book;
 import shared.Member;
-import shared.BorrowRecord;
+
+class Node {
+    Member data;
+    Node next;
+
+    Node(Member data) {
+        this.data = data;
+        this.next = null;
+    }
+}
 
 public class BorrowingQueue {
-    private Queue<BorrowRecord> queue;
+    private Node front;
+    private Node rear;
+    private int size;
 
     public BorrowingQueue() {
-        queue = new LinkedList<>();
+        front = rear = null;
+        size = 0;
     }
 
-    public void enqueue(BorrowRecord record) {
-        queue.add(record);
-        System.out.println("Masuk antrian.....");
+    // enqueue
+    public void enqueue(Member data) {
+        Node newNode = new Node(data);
+
+        if (isEmpty()) {
+            front = rear = newNode;
+        } else {
+            rear.next = newNode;
+            rear = newNode;
+        }
+
+        size++;
     }
 
+    // dequeue
+    public Member dequeue() {
+        if (isEmpty()) {
+            System.out.println("Error: Antrian peminjaman sudah kosong.");
+            return null;
+        }
+
+        Member temp = front.data;
+        front = front.next;
+        size--;
+
+        if (front == null) {
+            rear = null;
+        }
+
+        return temp;
+    }
+
+    // peek
+    public Member peek() {
+        if (isEmpty()) return null;
+        return front.data;
+    }
+
+    // isEmpty
     public boolean isEmpty() {
-    return queue.isEmpty();
+        return front == null;
     }
 
+    // size
+    public int size() {
+        return size;
+    }
+
+    // display
     public void displayQueue() {
-        System.out.println(" Isi antrian: ");
-        for (BorrowRecord br : queue) {
-            System.out.println(br.bookIsbn + " oleh " + br.memberId);
+        if (isEmpty()) {
+            System.out.println("Antrian kosong.");
+            return;
+        }
+
+        System.out.println("=== Antrian Peminjaman (" + size + " anggota) ===");
+
+        Node current = front;
+        int i = 1;
+
+        while (current != null) {
+            Member m = current.data;
+            System.out.println(i + ". [" + m.id + "] " + m.name +
+                    " (meminjam: " + m.borrowCount + " buku)");
+            current = current.next;
+            i++;
         }
     }
-
-
-
-public void processBorrow(Map<String, Book> books, Map<String, Member> members) {
-    if (queue.isEmpty()) {
-        System.out.println("Antrian kosong.....");
-    }
-
-    BorrowRecord record = queue.poll() ;
-
-    Book book = books.get(record.bookIsbn);
-    Member member = members.get(record.memberId);
-
-    if (book == null) {
-        System.out.println("BUku sedang tidak tersedia! ");
-        return;
-    }
-
-    if (member == null) {
-        System.out.println("Member tidak ditemukan! ");
-        return;
-    }
-
-    if (!book.available) {
-        System.out.println("Buku sedang dipinjam. ");
-        return;
-    }
-
-    book.available = false;
-    member. borrowCount++;
-
-    System.out.println(" Peminjaman telah berhasil :) ");
-    record.display();
-    }
-
 }
