@@ -1,66 +1,94 @@
 package student1;
 
 import shared.Book;
-import java.util.ArrayList;
-import java.util.List;
 
 public class BookCollection {
-    private List<Book> books;
+    private Book[] books;
+    private int size;
 
     public BookCollection() {
-        this.books = new ArrayList<>();
+        books = new Book[2];
+        size = 0;
+    }
+
+    private void resize() {
+        Book[] newBooks = new Book[books.length * 2];
+        for (int i = 0; i < books.length; i++) {
+            newBooks[i] = books[i];
+        }
+        books = newBooks;
     }
 
     public void addBook(Book book) {
-        books.add(book);
+        if (size == books.length) {
+            resize();
+        }
+        books[size] = book;
+        size++;
     }
 
-    public boolean removeBook(String isbn) {
-        for (int i = 0; i < books.size(); i++) {
-            if (books.get(i).isbn.equals(isbn)) {
-                books.remove(i);
-                return true;
+    public void removeBook(String isbn) {
+        for (int i = 0; i < size; i++) {
+            if (books[i].isbn.equals(isbn)) {   // ✅ langsung akses field
+                for (int j = i; j < size - 1; j++) {
+                    books[j] = books[j + 1];
+                }
+                books[size - 1] = null;
+                size--;
+                System.out.println("Buku " + isbn + " berhasil dihapus.");
+                return;
             }
         }
-        return false;
+        System.out.println("Tidak ditemukan: ISBN " + isbn);
     }
 
-    public Book findByIsbn(String isbn) {
-        for (Book book : books) {
-            if (book.isbn.equals(isbn)) {
-                System.out.println("Ditemukan: " + book.getInfo());
-                return book;
+    public void findByIsbn(String isbn) {
+        for (int i = 0; i < size; i++) {
+            if (books[i].isbn.equals(isbn)) {   // ✅
+                Book b = books[i];
+                String status = b.available ? "[tersedia]" : "[tidak tersedia]";
+                System.out.println("Ditemukan: [" + b.isbn + "] "
+                        + b.title + " - " + b.author
+                        + " (" + b.year + ") " + status);
+                return;
             }
         }
-        return null;
+        System.out.println("Tidak ditemukan: ISBN " + isbn);
     }
 
-    public List<Book> findByAuthor(String author) {
-        List<Book> result = new ArrayList<>();
-        for (Book book : books) {
-            if (book.author.equalsIgnoreCase(author)) {
-                String status = book.available ? "tersedia" : "tidak tersedia";
-                System.out.println("Ditemukan: [" + book.isbn + "] " + book.title + " (" + book.year + ") [" + status + "]");
-                result.add(book);
+    public void findByAuthor(String author) {
+        boolean found = false;
+        for (int i = 0; i < size; i++) {
+            if (books[i].author.equalsIgnoreCase(author)) {   // ✅
+                Book b = books[i];
+                String status = b.available ? "[tersedia]" : "[tidak tersedia]";
+                System.out.println("Ditemukan: [" + b.isbn + "] "
+                        + b.title + "  (" + b.year + ") " + status);
+                found = true;
             }
         }
-        return result;
+        if (!found) {
+            System.out.println("Tidak ditemukan buku oleh: " + author);
+        }
     }
 
     public void listAvailable() {
         System.out.println("=== Buku Tersedia ===");
-        for (Book book : books) {
-            if (book.available) {
-                book.display();
+        for (int i = 0; i < size; i++) {
+            if (books[i].available) {   // ✅
+                Book b = books[i];
+                System.out.println("[" + b.isbn + "] "
+                        + b.title + "  - " + b.author
+                        + " (" + b.year + ")");
             }
         }
     }
 
     public int size() {
-        return books.size();
+        return size;
     }
 
     public boolean isEmpty() {
-        return books.isEmpty();
+        return size == 0;
     }
 }
