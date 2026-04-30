@@ -8,7 +8,7 @@ public class BookCollection {
 
     public BookCollection() {
         books = new Book[2];
-        size = 0; // increment size 
+        size = 0; 
     }
 
     private void resize() {
@@ -24,7 +24,7 @@ public class BookCollection {
             resize();
         }
         books[size] = book;
-        size++;
+        size++; //increment size
     }
 
     public void removeBook(String isbn) {
