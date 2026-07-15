@@ -24,7 +24,7 @@ public class BookCollection {
             resize();
         }
         books[size] = book;
-        size++; 
+        size++; //increment size
     }
 
     public void removeBook(String isbn) {
@@ -35,7 +35,7 @@ public class BookCollection {
                 }
                 books[size -1] = null;
                 size--;
-                System.out.println("Buku" + isbn + "berhasil dihapus".);
+                System.out.prinln("Buku" + isbn + "berhasil dihapus".);
                 return;
 
             }

@@ -1,7 +1,6 @@
 import shared.*;
-import student2.BorrowingQueue;
 
-public class main {
+class Main {
     public static void main(String[] args) {
 
         // test Book
