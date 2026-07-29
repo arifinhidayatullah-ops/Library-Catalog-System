@@ -22,7 +22,6 @@ public class BorrowingQueue {
         size = 0;
     }
 
-    // enqueue
     public void enqueue(Member data) {
         Node newNode = new Node(data);
 
@@ -36,10 +35,9 @@ public class BorrowingQueue {
         size++;
     }
 
-    // dequeue
     public Member dequeue() {
         if (isEmpty()) {
-            System.out.println("Error: Antrian peminjaman sudah kosong.");
+            System.out.println("Error : ANtrian peminjaman sudah kosong. ");
             return null;
         }
 
@@ -54,40 +52,35 @@ public class BorrowingQueue {
         return temp;
     }
 
-    // peek
     public Member peek() {
         if (isEmpty()) return null;
         return front.data;
     }
 
-    // isEmpty
     public boolean isEmpty() {
         return front == null;
     }
 
-    // size
     public int size() {
         return size;
     }
 
-    // display
     public void displayQueue() {
         if (isEmpty()) {
-            System.out.println("Antrian kosong.");
+            System.out.println("antrian kosong.");
             return;
         }
 
-        System.out.println("=== Antrian Peminjaman (" + size + " anggota) ===");
+        System.out.println("=== antrian peminjaman (" + size + " anggota)===");
 
         Node current = front;
         int i = 1;
 
         while (current != null) {
             Member m = current.data;
-            System.out.println(i + ". [" + m.id + "] " + m.name +
-                    " (meminjam: " + m.borrowCount + " buku)");
+            System.out.println(i + ". [" + m.id + "] " + m.name + " (meminjam: " + m.borrowCount + " buku) ");
             current = current.next;
             i++;
-        }
+       }
     }
 }

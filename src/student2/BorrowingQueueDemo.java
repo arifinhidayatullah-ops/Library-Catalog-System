@@ -7,22 +7,20 @@ public class BorrowingQueueDemo {
 
         BorrowingQueue queue = new BorrowingQueue();
 
-        // data sesuai sample
-        queue.enqueue(new Member("M001", "Dina Anggraini", "dina@mail.com", 3));
-        queue.enqueue(new Member("M002", "Farhan Hidayat", "farhan@mail.com", 1));
-        queue.enqueue(new Member("M003", "Gita Lestari", "gita@mail.com", 5));
+        queue.enqueue(new Member("M01", "Sabian Mugis", "mugis88@gmail.com", 3));
+        queue.enqueue(new Member("M02", "Andreww jung", "dre123@gmail.com", 2));
+        queue.enqueue(new Member("M03", "Dinda", "DINDAAAAAAA@gmail.com", 5));
 
         queue.displayQueue();
 
         System.out.println("Berikutnya: " + queue.peek().name);
 
-        System.out.println("Dilayani: " + queue.dequeue().name);
+        System.out.println("DIlayani: " + queue.dequeue().name);
         queue.displayQueue();
 
         System.out.println("Dilayani: " + queue.dequeue().name);
         System.out.println("Dilayani: " + queue.dequeue().name);
 
-        // ini harus error
         queue.dequeue();
     }
 }
