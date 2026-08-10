@@ -20,7 +20,7 @@ public class AuthorGraphDemo {
         boolean running = true;
 
         System.out.println("==============================================");
-        System.out.println("=== DEMO AUTHOR GRAPH MODULE ===");
+        System.out.println("=== DEMO AUTHOR GRAPH MODULE (git)===");
         System.out.println("==============================================");
 
         while (running) {
