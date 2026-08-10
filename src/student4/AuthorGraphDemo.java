@@ -24,11 +24,7 @@ public class AuthorGraphDemo {
         System.out.println("==============================================");
 
         while (running) {
-<<<<<<< HEAD
-            System.out.println("\n-- PILIH FITUR YANG INGIN DITRY--");
-=======
-            System.out.println("\n-- PILIH FITUR YANG WANT DICOBA--");
->>>>>>> student4
+            System.out.println("\n-- PILIH FITUR YANG WANT DITRY--");
             System.out.println("1. Jalankan Automated Demo Test (Output lengkap)");
             System.out.println("2. Cari teman kolaborasi langsung (Direct Co-authors)");
             System.out.println("3. Cari jalur kolaborasi terpendek (Shortest path BFS)");
