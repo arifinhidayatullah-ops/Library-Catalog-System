@@ -57,7 +57,7 @@ public class CatalogBST {
     }
 
     public void inOrderTraversal() {
-        System.out.println("=== Katalog Buu (urut ISBN) ===");
+        System.out.println("=== Katalog Buku (urut ISBN) ===");
         inOrderRec(root);
     }
 
