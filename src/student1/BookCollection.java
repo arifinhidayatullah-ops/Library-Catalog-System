@@ -54,7 +54,7 @@ public class BookCollection {
                 return;
             }
         }
-        System.out.println("tidak ditemukan: ISBN" + isbn);
+        System.out.println("Tidak ditemukan: ISBN" + isbn);
     }
 
     public void findByAuthor(String author) {
